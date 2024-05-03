@@ -10,7 +10,7 @@ namespace mappark.api.Controllers
     [ApiController]
     public class MachineLearningController : ControllerBase
     {
-        [HttpPost]
+        [HttpPost("ProbabilidadEstacionamiento")]
         public async Task<string> ProbabilidadEstacionamiento([FromBody] RequestProbabilidadEstacionamiento request)
         {
             var client = new HttpClient();
