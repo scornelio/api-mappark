@@ -9,52 +9,52 @@ namespace mappark.api.Models
         public int IdProbabilidadEstacionamiento { get; set; }
 
         [JsonPropertyName("latitud")]
-        public double Latitud { get; set; }
+        public double? Latitud { get; set; }
 
         [JsonPropertyName("longitud")]
-        public double Longitud { get; set; }
+        public double? Longitud { get; set; }
 
         [JsonPropertyName("pais")]
-        public string Pais { get; set; }
+        public string? Pais { get; set; }
 
         [JsonPropertyName("ciudad")]
-        public string Ciudad { get; set; }
+        public string? Ciudad { get; set; }
 
         [JsonPropertyName("provincia")]
-        public string Provincia { get; set; }
+        public string? Provincia { get; set; }
 
         [JsonPropertyName("barrio")]
-        public string Barrio { get; set; }
+        public string? Barrio { get; set; }
 
         [JsonPropertyName("nombreVia")]
-        public string NombreVia { get; set; }
+        public string? NombreVia { get; set; }
 
         [JsonPropertyName("codigoPostal")]
-        public int CodigoPostal { get; set; }
+        public int? CodigoPostal { get; set; }
 
         [JsonPropertyName("fechaCompleta")]
-        public DateTime FechaCompleta { get; set; }
+        public DateTime? FechaCompleta { get; set; }
 
         [JsonPropertyName("año")]
-        public int Año { get; set; }
+        public int? Año { get; set; }
 
         [JsonPropertyName("nombreDiaSemana")]
-        public string NombreDiaSemana { get; set; }
+        public string? NombreDiaSemana { get; set; }
 
         [JsonPropertyName("nombreMes")]
-        public string NombreMes { get; set; }
+        public string? NombreMes { get; set; }
 
         [JsonPropertyName("horaInicio")]
-        public string HoraInicio { get; set; }
+        public string? HoraInicio { get; set; }
 
         [JsonPropertyName("horaFin")]
-        public string HoraFin { get; set; }
+        public string? HoraFin { get; set; }
 
         [JsonPropertyName("temperatura")]
-        public double Temperatura { get; set; }
+        public double? Temperatura { get; set; }
 
         [JsonPropertyName("precipitacion")]
-        public double Precipitacion { get; set; }
+        public double? Precipitacion { get; set; }
 
         [JsonPropertyName("densidadTrafico")]
         public double? DensidadTrafico { get; set; }
