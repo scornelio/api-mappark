@@ -22,6 +22,21 @@ namespace mappark.api.Controllers
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://az-ml-atmira-reboots-conn-point.westeurope.inference.ml.azure.com/score");
             httpRequest.Headers.Add("Authorization", "Bearer qfSc0byLka3RB5a3LJUNNyhwGYuTErqs");
 
+            using (var manipulador = new RequestManipulador())
+            {
+                try
+                {
+                    request.DensidadPoblacion = await manipulador.ObtenerYModificarCodigoPostal(request.CodigoPostal);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    request.DensidadPoblacion = null;                    
+                }
+                
+            }
+
+
             var requestWrapper = new RequestWrapper
             {
                 InputData = new InputData
@@ -32,7 +47,7 @@ namespace mappark.api.Controllers
 
             string json = JsonSerializer.Serialize(requestWrapper);
 
-            json = RequestManipulador.ObtenerYModificarCodigoPostal(json);
+            
 
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -69,53 +84,14 @@ namespace mappark.api.Controllers
        
     }
 
-    public class RequestManipulador
+    public class RequestManipulador : IDisposable
     {
-        public static string? ObtenerYModificarCodigoPostal(string json)
+        public async Task<decimal?> ObtenerYModificarCodigoPostal(int? codigoPostal)
         {
-            Console.WriteLine(json);
-            if (json == null)
-            {
-                return null; // Manejar JSON nulo
-            }
-            try
-            {
-                var request = JsonSerializer.Deserialize<RequestProbabilidadEstacionamiento>(json); ;
-
-                int? codigoPostal = 0;
-
-                using (JsonDocument document = JsonDocument.Parse(json))
-                {
-                    // Obtener el root
-                    JsonElement root1 = document.RootElement;
-
-                    // Navegar al valor de codigoPostal
-                    var jsonnuevo = root1
-                        .GetProperty("input_data")
-                        .GetProperty("data")[0];
-                        
-                    request = JsonSerializer.Deserialize<RequestProbabilidadEstacionamiento>(jsonnuevo);
-
-                }
-                codigoPostal = request.CodigoPostal;
-                Decimal? densidadPoblacion = ObtenerDensidadPoblacion(codigoPostal);
-
-                request.DensidadTrafico = (double)densidadPoblacion;
-
-                var nuevojson = JsonSerializer.Serialize(request);
-
-                Console.WriteLine(densidadPoblacion);
-
-                return json;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al procesar el JSON: {ex.Message}");
-                return json; // Devolver JSON original en caso de error
-            }
+            return await ObtenerDensidadPoblacion(codigoPostal);
         }
 
-        public static Decimal? ObtenerDensidadPoblacion(int? codigoPostal)
+        public async Task<Decimal?> ObtenerDensidadPoblacion(int? codigoPostal)
         {
             try
             {
@@ -134,7 +110,7 @@ namespace mappark.api.Controllers
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
                         {
                             // Verificar si hay al menos una fila
                             if (reader.Read())
@@ -156,6 +132,11 @@ namespace mappark.api.Controllers
                 Console.WriteLine(e.ToString());
                 return -1;
             }
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
   
