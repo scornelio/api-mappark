@@ -137,7 +137,6 @@ namespace mappark.api.Controllers
         public void Dispose()
         {
             Console.WriteLine("Error");
-            throw new NotImplementedException();
         }
     }
   
