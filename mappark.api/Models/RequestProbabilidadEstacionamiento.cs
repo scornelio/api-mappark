@@ -5,14 +5,14 @@ namespace mappark.api.Models
 
     public class RequestProbabilidadEstacionamiento
     {
-        [JsonPropertyName("idProbabilidadEstacionamiento")]
+        /*[JsonPropertyName("idProbabilidadEstacionamiento")]
         public int IdProbabilidadEstacionamiento { get; set; }
 
         [JsonPropertyName("latitud")]
         public double? Latitud { get; set; }
 
         [JsonPropertyName("longitud")]
-        public double? Longitud { get; set; }
+        public double? Longitud { get; set; }*/
 
         [JsonPropertyName("pais")]
         public string? Pais { get; set; }
@@ -26,16 +26,16 @@ namespace mappark.api.Models
         [JsonPropertyName("barrio")]
         public string? Barrio { get; set; }
 
-        [JsonPropertyName("nombreVia")]
+        [JsonPropertyName("nombrevia")]
         public string? NombreVia { get; set; }
 
         [JsonPropertyName("codigoPostal")]
         public int? CodigoPostal { get; set; }
 
-        [JsonPropertyName("fechaCompleta")]
+        [JsonPropertyName("fecha")]
         public DateTime? FechaCompleta { get; set; }
 
-        [JsonPropertyName("año")]
+        [JsonPropertyName("ano")]
         public int? Año { get; set; }
 
         [JsonPropertyName("nombreDiaSemana")]
@@ -44,22 +44,22 @@ namespace mappark.api.Models
         [JsonPropertyName("nombreMes")]
         public string? NombreMes { get; set; }
 
-        [JsonPropertyName("horaInicio")]
+        [JsonPropertyName("HoraInicio")]
         public string? HoraInicio { get; set; }
 
-        [JsonPropertyName("horaFin")]
+        [JsonPropertyName("HoraFin")]
         public string? HoraFin { get; set; }
 
-        [JsonPropertyName("temperatura")]
+        /*[JsonPropertyName("temperatura")]
         public double? Temperatura { get; set; }
 
         [JsonPropertyName("precipitacion")]
-        public double? Precipitacion { get; set; }
+        public double? Precipitacion { get; set; }*/
 
-        [JsonPropertyName("densidadTrafico")]
-        public decimal? DensidadTrafico { get; set; }
+        /*[JsonPropertyName("densidadTrafico")]
+        public decimal? DensidadTrafico { get; set; }*/
 
-        [JsonPropertyName("densidadPoblacion")]
+        [JsonPropertyName("Densidad")]
         public decimal? DensidadPoblacion { get; set; }
     }
 
