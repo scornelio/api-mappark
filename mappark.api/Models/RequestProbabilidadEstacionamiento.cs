@@ -38,6 +38,9 @@ namespace mappark.api.Models
         [JsonPropertyName("ano")]
         public int? Año { get; set; }
 
+        [JsonPropertyName("dia")]
+        public int? Dia { get; set; }
+
         [JsonPropertyName("nombreDiaSemana")]
         public string? NombreDiaSemana { get; set; }
 
