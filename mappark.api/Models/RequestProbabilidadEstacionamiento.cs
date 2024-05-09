@@ -57,7 +57,10 @@ namespace mappark.api.Models
         public double? Precipitacion { get; set; }
 
         [JsonPropertyName("densidadTrafico")]
-        public double? DensidadTrafico { get; set; }
+        public decimal? DensidadTrafico { get; set; }
+
+        [JsonPropertyName("densidadPoblacion")]
+        public decimal? DensidadPoblacion { get; set; }
     }
 
     public class RequestWrapper
