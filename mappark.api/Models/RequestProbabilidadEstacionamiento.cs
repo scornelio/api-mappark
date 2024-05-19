@@ -6,13 +6,13 @@ namespace mappark.api.Models
     public class RequestProbabilidadEstacionamiento
     {
         /*[JsonPropertyName("idProbabilidadEstacionamiento")]
-        public int IdProbabilidadEstacionamiento { get; set; }
+        public int IdProbabilidadEstacionamiento { get; set; }*/
 
         [JsonPropertyName("latitud")]
         public double? Latitud { get; set; }
 
         [JsonPropertyName("longitud")]
-        public double? Longitud { get; set; }*/
+        public double? Longitud { get; set; }
 
         [JsonPropertyName("pais")]
         public string? Pais { get; set; }
@@ -53,11 +53,11 @@ namespace mappark.api.Models
         [JsonPropertyName("HoraFin")]
         public string? HoraFin { get; set; }
 
-        /*[JsonPropertyName("temperatura")]
-        public double? Temperatura { get; set; }
-
         [JsonPropertyName("precipitacion")]
-        public double? Precipitacion { get; set; }*/
+        public double? Precipitacion { get; set; }
+
+        [JsonPropertyName("temperatura")]
+        public double? Temperatura { get; set; }
 
         /*[JsonPropertyName("densidadTrafico")]
         public decimal? DensidadTrafico { get; set; }*/

@@ -19,8 +19,8 @@ namespace mappark.api.Controllers
             
 
             var client = new HttpClient();
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://v2-miguel-aparca.eastus2.inference.ml.azure.com/score");
-            httpRequest.Headers.Add("Authorization", "Bearer oVxmLDliHMZSl2JbsHzV4Q6ziVZ3TLie");
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://miguel-aparca-ffkma.eastus2.inference.ml.azure.com/score");
+            httpRequest.Headers.Add("Authorization", "Bearer Z5iP0GnlHxco3h04REykxUgonrKujGSo");
 
             using (var manipulador = new RequestManipulador())
             {
@@ -57,14 +57,14 @@ namespace mappark.api.Controllers
             var result = await response.Content.ReadAsStringAsync();
 
 
-            var probabilities = JsonSerializer.Deserialize<List<double>>(result);
+            var probabilities = JsonSerializer.Deserialize<List<string>>(result);
             if (probabilities == null || probabilities.Count == 0)
             {
                 return "No se ha podido obtener la probabilidad";
             }
 
-            double probability = probabilities[0];
-            string category;
+            string probability = probabilities[0];
+            /*string category;
 
             if (probability < 0.50)
             {
@@ -77,9 +77,9 @@ namespace mappark.api.Controllers
             else
             {
                 category = "Alta";
-            }
+            }*/
 
-            return category;
+            return probability;
         }
        
     }
@@ -115,7 +115,6 @@ namespace mappark.api.Controllers
                             // Verificar si hay al menos una fila
                             if (reader.Read())
                             {
-                                Console.WriteLine(reader[0]);
                                 return (Decimal)reader[0];
                             }
                             else
