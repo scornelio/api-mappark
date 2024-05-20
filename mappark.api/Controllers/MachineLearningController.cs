@@ -19,8 +19,8 @@ namespace mappark.api.Controllers
             
 
             var client = new HttpClient();
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://miguel-aparca-ffkma.eastus2.inference.ml.azure.com/score");
-            httpRequest.Headers.Add("Authorization", "Bearer Z5iP0GnlHxco3h04REykxUgonrKujGSo");
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://miguel-aparca-ahqvg.eastus2.inference.ml.azure.com/score");
+            httpRequest.Headers.Add("Authorization", "Bearer DD0zzQYpSTfdWyKpEM1QB3HLzXKeLx4Q");
 
             using (var manipulador = new RequestManipulador())
             {

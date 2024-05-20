@@ -14,8 +14,8 @@ namespace mappark.api.Models
         [JsonPropertyName("longitud")]
         public double? Longitud { get; set; }
 
-        [JsonPropertyName("pais")]
-        public string? Pais { get; set; }
+        /*[JsonPropertyName("pais")]
+        public string? Pais { get; set; }*/
 
         [JsonPropertyName("ciudad")]
         public string? Ciudad { get; set; }
@@ -23,35 +23,35 @@ namespace mappark.api.Models
         [JsonPropertyName("provincia")]
         public string? Provincia { get; set; }
 
-        [JsonPropertyName("barrio")]
-        public string? Barrio { get; set; }
+        /*[JsonPropertyName("barrio")]
+        public string? Barrio { get; set; }*/
 
-        [JsonPropertyName("nombrevia")]
-        public string? NombreVia { get; set; }
+        /*[JsonPropertyName("nombrevia")]
+        public string? NombreVia { get; set; }*/
 
         [JsonPropertyName("codigoPostal")]
         public int? CodigoPostal { get; set; }
 
-        [JsonPropertyName("fecha")]
+        /*[JsonPropertyName("fecha")]
         public DateTime? FechaCompleta { get; set; }
 
         [JsonPropertyName("ano")]
         public int? Año { get; set; }
 
         [JsonPropertyName("dia")]
-        public int? Dia { get; set; }
+        public int? Dia { get; set; }*/
 
         [JsonPropertyName("nombreDiaSemana")]
         public string? NombreDiaSemana { get; set; }
 
-        [JsonPropertyName("nombreMes")]
-        public string? NombreMes { get; set; }
+        /*[JsonPropertyName("nombreMes")]
+        public string? NombreMes { get; set; }*/
 
         [JsonPropertyName("HoraInicio")]
-        public string? HoraInicio { get; set; }
+        public int? HoraInicio { get; set; }
 
         [JsonPropertyName("HoraFin")]
-        public string? HoraFin { get; set; }
+        public int? HoraFin { get; set; }
 
         [JsonPropertyName("precipitacion")]
         public double? Precipitacion { get; set; }
